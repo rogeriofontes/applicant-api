@@ -1,0 +1,62 @@
+version: '3.1'
+services:
+  docker-mysql:
+    restart: always
+    container_name: docker-mysql
+    image: mysql
+    environment:
+      MYSQL_DATABASE: home-office
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_HOST: '%'
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+    ports:
+      - "6033:3306"
+    healthcheck:
+      test: "/usr/bin/mysql --user=root --password=root--execute \"SHOW DATABASES;\""
+      interval: 2s
+      timeout: 20s
+      retries: 10
+    command: --default-authentication-plugin=mysql_native_password
+  home-office-app:
+    restart: on-failure
+    build: ./
+    expose:
+      - "9998"
+    ports:
+     - 9998:9998
+    # Essa opacao é chamada quam criamos um arquivo com a extensao .env
+    env_file:
+      - ./env_app.env
+    #environment:
+    #WAIT_HOSTS: mysql:3307
+    depends_on:
+     - docker-mysql
+  nginx:
+    container_name: some-nginx
+    image: nginx:1.13
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - home-office-app
+
+
+
+    #environment: // Essa opacao é chamada quam criamos um arquivo chamado .env
+      #SENDGRID_API_KEY: ${SENDGRID_API_KEY}
+      #SENDGRID_TEMPLATE_ID_KEY: ${SENDGRID_TEMPLATE_ID_KEY}
+      #MYSQL_USER_NAME: ${MYSQL_USER_NAME}
+      #MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      #MYSQL_CONTEXT: ${MYSQL_CONTEXT}
+      #MYSQL_PORT: ${MYSQL_PORT}
+    #environment: // Essa opacao é chamada quando quisermos passar variaveis direto
+      #SENDGRID_API_KEY: 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
+      #SENDGRID_TEMPLATE_ID_KEY: d-f67a24f993034776b2059f278d7aa5cd
+      #MYSQL_USER_NAME: root
+      #MYSQL_PASSWORD: root
+      #MYSQL_CONTEXT: docker-mysql
+      #MYSQL_PORT: 3306

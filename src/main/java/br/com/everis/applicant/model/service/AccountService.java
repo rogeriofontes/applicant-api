@@ -1,0 +1,7 @@
+package br.com.everis.applicant.model.service;
+
+import br.com.everis.applicant.model.entity.User;
+
+public interface AccountService {
+    boolean register(User user);
+}

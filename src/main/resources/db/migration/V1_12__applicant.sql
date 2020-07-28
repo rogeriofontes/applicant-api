@@ -1,0 +1,19 @@
+CREATE TABLE IF NOT EXISTS `tb_applicant` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(150) NOT NULL,
+  `has_notebook` TINYINT(1) NOT NULL,
+  `mother_name` varchar(150) NOT NULL,
+  `date_birth` varchar(150) NOT NULL,
+  `user_id` bigint(20) NOT NULL,
+  `phone` varchar(150) NOT NULL,
+  `mobile` varchar(150) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `linked_in` varchar(150) NOT NULL,
+  `registered_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `status` varchar(255) NOT NULL,
+  `create_by` varchar(255) NOT NULL DEFAULT 'system_user',
+  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `last_modified_by` varchar(255),
+  `last_modified_date` datetime,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
