@@ -26,11 +26,15 @@ public class Applicant extends Person {
 	@Column(name = "registered_at", columnDefinition = "TIMESTAMP")
 	private LocalDateTime registeredAt;
 
+	//@OneToMany(mappedBy = "applicant")
+	//private Set<ApplicationEvaluation> evaluations;
+
 	@Builder
-	public Applicant(String name, Boolean hasNotebook, String motherName, String dateBirth, User user, String phone, String mobile, String email, String linkedIn, LocalDateTime registeredAt) {
+	public Applicant(String name, Boolean hasNotebook, String motherName, String dateBirth, User user, String phone, String mobile, String email, String linkedIn, LocalDateTime registeredAt, Set<ApplicationEvaluation> evaluations) {
 		super(name, hasNotebook, motherName, dateBirth, user, phone, mobile, email);
 		this.linkedIn = linkedIn;
 		this.registeredAt = registeredAt;
+		//this.evaluations = evaluations;
 	}
 
 	public void update(Long id, Applicant applicant) {

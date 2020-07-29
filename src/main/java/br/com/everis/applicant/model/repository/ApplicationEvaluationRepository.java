@@ -1,17 +1,14 @@
 package br.com.everis.applicant.model.repository;
 
 import br.com.everis.applicant.model.entity.Applicant;
-import br.com.everis.applicant.model.entity.Professional;
+import br.com.everis.applicant.model.entity.ApplicationEvaluation;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 /**
- * @author Rogério Fontes
+ * @author Rogério Fontes Tomaz
  *
  */
 @Repository
-public interface ApplicantRepository extends JpaRepository<Applicant, Long> {
+public interface ApplicationEvaluationRepository extends JpaRepository<ApplicationEvaluation, Long> {
 }

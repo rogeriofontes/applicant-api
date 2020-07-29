@@ -31,6 +31,8 @@ public class Constants {
 
     public static final String APPLICANT_IN_CACHE = "applicantInCache";
 
+    public static final String APPLICANT_EVALUATION_IN_CACHE = "applicantEvaluationInCache";
+
     public static final String DOCUMENT_REGIONS_IN_CACHE = "documentRegionsInCache";
 
     public static final String PERSON_TYPES_IN_CACHE = "personTypesInCache";

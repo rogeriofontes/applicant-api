@@ -8,7 +8,7 @@ import lombok.*;
 import javax.persistence.*;
 
 /**
- * @author Marcelo
+ * @author Rogério Fontes
  *
  */
 @Builder

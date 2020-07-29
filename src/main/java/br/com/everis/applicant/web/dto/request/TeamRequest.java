@@ -8,7 +8,7 @@ import lombok.*;
 import java.io.Serializable;
 
 /**
- * @author Marcelo
+ * @author Rogério Fontes
  *
  */
 @Data

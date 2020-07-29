@@ -1,9 +1,14 @@
 package br.com.everis.applicant.web.dto.response;
 
+import br.com.everis.applicant.model.domain.TechLevel;
+import br.com.everis.applicant.model.entity.Applicant;
+import br.com.everis.applicant.model.entity.ProgrammingLanguage;
 import br.com.everis.applicant.model.entity.Team;
 import br.com.everis.applicant.model.entity.User;
 import lombok.*;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -17,17 +22,10 @@ import java.time.LocalDateTime;
 @Builder
 @EqualsAndHashCode(callSuper = false)
 @ToString
-public class ApplicationResponse implements Serializable {
+public class ApplicationEvaluationResponse implements Serializable {
 	private Long id;
-	private String name;
-	private Boolean hasNotebook;
-	private Team team;
-	private String motherName;
-	private String dateBirth;
-	private User user;
-	private String phone;
-	private String mobile;
-	private String email;
-	private String linkedIn;
+	private Applicant applicant;
+	private ProgrammingLanguage programmingLanguage;
 	private LocalDateTime registeredAt;
+	private TechLevel techLevel;
 }

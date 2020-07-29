@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.Set;
 
 /**
- * @author Marcelo
+ * @author Rogério Fontes
  *
  */
 @Data

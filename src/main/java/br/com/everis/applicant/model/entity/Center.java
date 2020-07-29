@@ -10,7 +10,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 /**
- * @author Marcelo
+ * @author Rogério Fontes
  *
  */
 @Builder

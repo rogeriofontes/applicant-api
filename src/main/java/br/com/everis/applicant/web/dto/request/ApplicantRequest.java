@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
- * @author Marcelo
+ * @author Rogério Fontes
  *
  */
 @Data

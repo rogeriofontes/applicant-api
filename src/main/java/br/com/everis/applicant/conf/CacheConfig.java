@@ -90,6 +90,12 @@ public class CacheConfig {
         return new CaffeineCache(Constants.APPLICANT_IN_CACHE,
                 Caffeine.newBuilder().expireAfterWrite(30, TimeUnit.MINUTES).maximumSize(Constants.MAXIMUM_SIZE).build());
     }
+
+    @Bean
+    public CaffeineCache applicantEvaluationsCache() {
+        return new CaffeineCache(Constants.APPLICANT_EVALUATION_IN_CACHE,
+                Caffeine.newBuilder().expireAfterWrite(30, TimeUnit.MINUTES).maximumSize(Constants.MAXIMUM_SIZE).build());
+    }
 }
 
 
